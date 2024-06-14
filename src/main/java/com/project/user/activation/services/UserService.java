@@ -20,4 +20,20 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
+    public UserEntity getById(Integer idUser){
+        return this.userRepository.findById(idUser).orElse(null);
+    }
+
+    public UserEntity saveUser(UserEntity user){
+        return this.userRepository.save(user);
+    }
+
+    public void deleteUser(Integer idUser){
+        this.userRepository.deleteById(idUser);
+    }
+
+    public boolean userExist(Integer idUser){
+        return this.userRepository.existsById(idUser);
+    }
+
 }
